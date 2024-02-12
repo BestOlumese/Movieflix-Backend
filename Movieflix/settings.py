@@ -61,9 +61,7 @@ MIDDLEWARE = [
     "django.middleware.common.CommonMiddleware",
 ]
 
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",
-]
+CORS_ALLOWED_ORIGINS = os.getenv('CORS_ALLOWED_ORIGINS', '127.0.0.1:3000,localhost:3000,').split(',')
 
 ROOT_URLCONF = 'Movieflix.urls'
 
