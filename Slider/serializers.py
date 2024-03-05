@@ -8,6 +8,7 @@ class SliderSerializer(serializers.ModelSerializer):
     def get_movie_data(self, obj):
         if obj.movie:
             return {
+                "slug": obj.movie.slug,
                 "title": obj.movie.title,
                 "movie_quality": obj.movie.movie_quality,
                 "genre": obj.movie.genre,

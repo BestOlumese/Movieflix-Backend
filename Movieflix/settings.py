@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'ShowType',
     'django_filters',
     "corsheaders",
+    'storages'
 ]
 
 MIDDLEWARE = [
@@ -133,19 +134,19 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = 'static/'
-STATICFILES_DIRS=[BASE_DIR/'static']
-STATIC_ROOT=BASE_DIR/'assets'
+# STATIC_URL = 'static/'
+# STATICFILES_DIRS=[BASE_DIR/'static']
+# STATIC_ROOT=BASE_DIR/'assets'
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-MEDIA_URL='/media/'
-MEDIA_ROOT = BASE_DIR /'media'
+# MEDIA_URL='/media/'
+# MEDIA_ROOT = BASE_DIR /'media'
 
 TAGGIT_CASE_INSENSITIVE = True
 
@@ -155,3 +156,19 @@ REST_FRAMEWORK = {
     'PAGE_SIZE': 8,
     'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],
 }
+
+AWS_ACCESS_KEY_ID = 'DO00VXQQ8RK3GH3B98CR'
+AWS_SECRET_ACCESS_KEY = 'gdEcyaHvEBq/Tfu+xPUKFECWZHMcQEC1qh4OADtanRU'
+AWS_STORAGE_BUCKET_NAME = 'django-media'
+AWS_S3_ENDPOINT_URL = 'https://nyc3.digitaloceanspaces.com'
+AWS_S3_OBJECT_PARAMETERS = {
+    'CacheControl': 'max-age=86400',
+}
+AWS_LOCATION = 'media'
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+]
+STATIC_URL = 'https://%s/%s/' % (AWS_S3_ENDPOINT_URL, AWS_LOCATION)
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
