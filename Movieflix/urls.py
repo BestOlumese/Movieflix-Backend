@@ -25,6 +25,7 @@ urlpatterns = [
     path('api/v1/category/', include('Category.urls')),
     path('api/v1/slider/', include('Slider.urls')),
     path('api/v1/gallery/', include('MovieGallery.urls')),
+    path('api/v1/newsletter/', include('newsletter.urls')),
 ]
 if settings.DEBUG: 
     urlpatterns += static(settings.MEDIA_URL,
