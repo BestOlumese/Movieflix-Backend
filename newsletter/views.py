@@ -1,6 +1,6 @@
 from rest_framework.response import Response
 from .models import Newsletter
-from rest_framework.generics import ListAPIView
+from rest_framework.generics import CreateAPIView
 from django.views.decorators.csrf import csrf_exempt
 from .serializers import NewsletterSerializer 
 from rest_framework import status
