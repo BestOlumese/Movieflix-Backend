@@ -46,7 +46,8 @@ INSTALLED_APPS = [
     'ShowType',
     'django_filters',
     "corsheaders",
-    'storages'
+    'storages',
+    'newsletter',
 ]
 
 MIDDLEWARE = [
