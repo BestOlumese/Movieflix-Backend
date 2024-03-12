@@ -8,6 +8,10 @@ from rest_framework import status
 # Create your views here.
 @csrf_exempt
 class ApiNewsletterPost(APIView):
+
+    def get(self, request, *args **kwargs):
+        return
+    
     def post(self, request, *args, **kwargs):
         email = request.data
         newsletter = Newsletter.objects.create(email["email"])
