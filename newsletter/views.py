@@ -12,5 +12,5 @@ class ApiNewsletterPost(APIView):
         email = request.data
         newsletter = Newsletter.objects.create(email["email"])
         newsletter.save()
-        serializer = NewsletterSerializer(newsletter)
-        return Response(serializer.data)
+
+        return 
