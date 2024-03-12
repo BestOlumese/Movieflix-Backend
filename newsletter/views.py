@@ -9,7 +9,7 @@ from rest_framework import status
 @csrf_exempt
 class ApiNewsletterPost(APIView):
 
-    def get(self, request, *args **kwargs):
+    def get(self, request, *args, **kwargs):
         return
     
     def post(self, request, *args, **kwargs):
