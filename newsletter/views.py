@@ -5,6 +5,6 @@ from rest_framework import generics
 
 # Create your views here.
 @csrf_exempt
-class ApiNewsletterPost(generics.CreateAPIView):
+class ApiNewsletterPost(generics.ListCreateAPIView):
     queryset = Newsletter.objects.all()
     serializer_class = NewsletterSerializer
